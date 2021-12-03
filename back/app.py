@@ -4,12 +4,13 @@ from flask_marshmallow import Marshmallow
 from flask_cors import CORS, cross_origin
 import os
 import fbgraph
+import psycopg2
 
 app = Flask(__name__)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-    os.path.join(basedir, 'app.sqlite')
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://dlfctrigxnluad:4551e33a7511c7bfc2e86a3596b0ecc584165b40d0e70f5135ad1e1ac5c7dcac@ec2-34-193-235-32.compute-1.amazonaws.com:5432/d23k65r7toe2a"
+
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 CORS(app)
@@ -126,5 +127,4 @@ def api_blog_list():
 
 
 if __name__ == '__main__':
-    db.create_all()
     app.run(debug=True, port=8082)

@@ -1,10 +1,8 @@
 from flask import json, jsonify
-from app import app
 from dotenv import load_dotenv
 import facebook
 import os
 from flask_cors import CORS
-CORS(app)
 load_dotenv()
 
 
